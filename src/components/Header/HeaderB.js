@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Header.css';
+import './HeaderB.css';
 
-import logo from '../../components/Images/Image/Logo-2.png';
+import logo from '../../components/Images/Logo.png';
 
 const Header = () => {
     return (
         <div >
             <nav className="nav">
-                <ul className="links">
+                <ul>
                     <li>
                         <img className="logo" src={logo} alt=""/>
                     </li>

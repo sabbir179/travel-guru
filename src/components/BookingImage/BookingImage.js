@@ -35,8 +35,8 @@ const BookingImage = () => {
                             <CardMedia
                             className={classes.media}
                             image="https://iili.io/2A86EG.png"
-                            // title="Contemplative Reptile"
-                            background= 'linear-gradient(0.12deg, #000000 0.1%, rgba(0, 0, 0, 0) 69.96%)'
+                            
+                            
                             />
                             <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
@@ -52,7 +52,7 @@ const BookingImage = () => {
                             <CardMedia
                             className={classes.media}
                             image="https://iili.io/2ASfTP.png"
-                            // title="Contemplative Reptile"
+                            
                             />
                             <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
@@ -69,7 +69,7 @@ const BookingImage = () => {
                             <CardMedia
                             className={classes.media}
                             image="https://iili.io/2ASYZX.png"
-                            // title="Contemplative Reptile"
+                            
                             />
                             <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">

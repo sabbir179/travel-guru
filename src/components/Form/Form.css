@@ -1,0 +1,53 @@
+.booking-form{
+    background-color: #ffff;
+    position: absolute;
+    width: 470px;
+    height: 427px;
+    left: 835px;
+    top: 217px;
+    border: 1px solid grey;
+    padding: 12px 29px;
+}
+
+.booking-form input{
+    display: block;
+    margin-top: 30px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 417px;
+    height: 40px;
+    background-color: #F2F2F2;
+
+
+
+    /* position: absolute;
+    width: 417px;
+    height: 60px;
+    left: 859px;
+    top: 271px;
+
+    background: #F2F2F2;
+    border-radius: 5px; */
+    }
+
+.error{
+    color: red;
+}
+
+.btn-submit{
+    top: 20px;
+    width: 417px;
+    height: 40px;
+    background-color: #f9A51A;
+}
+
+.input-filed{
+    font-size: 16px;
+}
+
+#booking{
+    color: grey;
+    font-size: 14px;
+}
+

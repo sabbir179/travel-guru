@@ -14,7 +14,7 @@ const Home = () => {
         <div className="home">
             
             <div style={{ backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${home})` }} className="home">
-            <Layout></Layout>
+                    <Layout></Layout>
                 <div className="siteName">
                     <BookingImage></BookingImage>
                 </div>

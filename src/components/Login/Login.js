@@ -1,9 +1,11 @@
 import React from 'react';
-
+import Form from '../Form/LoginFrom';
+import Header from '../Header/HeaderB.js'
 const Login = () => {
     return (
         <div>
-            This is login
+            <Header></Header>
+            <Form></Form>
         </div>
     );
 };
