@@ -20,7 +20,7 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from '../Login/firebase.config';
 import { UserContext } from '../../App';
-
+import { useHistory, useLocation } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -55,8 +55,10 @@ export default function SignIn() {
   
   const classes = useStyles();
   //Sign with google account
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
-
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const history = useHistory();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: "/" } };
   if(firebase.apps.length === 0){
     firebase.initializeApp(firebaseConfig);
 }
@@ -70,6 +72,7 @@ export default function SignIn() {
       const {displayName, email} = result.user;
       const signedInUser = {name: displayName, email: email};
       setLoggedInUser(signedInUser);
+      history.replace(from);
       console.log(signedInUser)
       // ...
     }).catch(function(error) {
@@ -147,7 +150,7 @@ export default function SignIn() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link href="/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
