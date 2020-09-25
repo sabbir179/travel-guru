@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import Header from '../../components/Header/Header.js';
 import home from '../../components/Images/Image/background.png';
 
@@ -17,7 +17,7 @@ const Layout = () => {
                 <div>
                     <h1>Cox's bazar</h1>
                     <p>Cox's Bazar is a city, fishing port, tourism centre and district headquarters in southeastern Bangladesh. It is famous mostly for its long natural sandy beach, and it ...</p>
-                    <button className="btn-booking"> <span>Booking</span>   </button>
+                    <button className="btn-booking"> <Link to="/booking"><span>Booking</span></Link>   </button>
                 </div>
                 <div className="siteName">
                     

@@ -14,6 +14,7 @@ import {
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import SignUp from './components/Login/SignUp';
 import HotelDetail from './components/HotelDetail/HotelDetail';
+import NotFound from './components/NotFound/NotFound';
 
 
 export const UserContext = createContext();
@@ -22,7 +23,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      {/* <p> Name:  {loggedInUser.name} </p> */}
+      <p> Name:  {loggedInUser.name} </p>
     <Router>
           {/* <Header/> */}
           <Switch>
@@ -38,15 +39,18 @@ function App() {
             <Route path="/booking">
               <Booking />
             </Route>
-            <Route path="/hoteldetail">
+            {/* <Route path="/hoteldetail">
               <HotelDetail />
-            </Route>
-            {/* <PrivateRoute path="/booking/:booking">
-              <Booking />
-            </PrivateRoute> */}
+            </Route> */}
+            <PrivateRoute path="/hoteldetail/:booking">
+              <HotelDetail />
+            </PrivateRoute>
             <Route exact path="/">
               <Home />
             </Route>
+            <Route  path="*">
+            <NotFound></NotFound>
+          </Route>
           </Switch>
       </Router>
       </UserContext.Provider>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,7 +16,10 @@ import {useForm, Controller} from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faFacebook, faGoogle} from '@fortawesome/free-brands-svg-icons';
 
-
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import firebaseConfig from '../Login/firebase.config';
+import { UserContext } from '../../App';
 
 
 
@@ -49,7 +52,37 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignIn() {
+  
   const classes = useStyles();
+  //Sign with google account
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+
+  if(firebase.apps.length === 0){
+    firebase.initializeApp(firebaseConfig);
+}
+ 
+
+  const handleGoogleSignIn = () => {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+      
+      // The signed-in user info.
+      const {displayName, email} = result.user;
+      const signedInUser = {name: displayName, email: email};
+      setLoggedInUser(signedInUser);
+      console.log(signedInUser)
+      // ...
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+  }
   const {register, handleSubmit, control, errors} = useForm()
 
   return (
@@ -126,7 +159,7 @@ export default function SignIn() {
           <Button className={classes.btn}> <FontAwesomeIcon icon={faFacebook}/> <span>Continue with Facebook</span> </Button>
           <br/>
           <br/>
-          <Button className={classes.btn} > <FontAwesomeIcon icon={faGoogle} /> Continue with Gmail</Button>
+          <Button className={classes.btn} onClick= {handleGoogleSignIn} > <FontAwesomeIcon icon={faGoogle} /> Continue with Gmail</Button>
         </form>
       </div>
     </Container>
