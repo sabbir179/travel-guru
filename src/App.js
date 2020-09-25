@@ -12,6 +12,8 @@ import {
 } from "react-router-dom";
 
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import SignUp from './components/Login/SignUp';
+import HotelDetail from './components/HotelDetail/HotelDetail';
 
 
 export const UserContext = createContext();
@@ -30,8 +32,14 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
+            <Route path="/signup">
+              <SignUp />
+            </Route>
             <Route path="/booking">
               <Booking />
+            </Route>
+            <Route path="/hoteldetail">
+              <HotelDetail />
             </Route>
             {/* <PrivateRoute path="/booking/:booking">
               <Booking />
